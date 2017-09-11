@@ -1,0 +1,58 @@
+
+Database: prototipo_centralizadora
+
+-- -----------------------------------------------------
+-- Table Usuarios
+-- -----------------------------------------------------
+CREATE TABLE Usuarios (
+  idusuario SERIAL NOT NULL,
+  nomeusuario VARCHAR(100) NOT NULL,
+  loginusuario VARCHAR(50) NOT NULL,
+  senhausuario VARCHAR(100) NOT NULL,
+  tipousuario INT NOT NULL,
+  emailusuario VARCHAR(100) NOT NULL,
+  statususuario INT NOT NULL,
+  PRIMARY KEY (idusuario));
+  
+insert into usuarios ( idusuario, nomeusuario, loginusuario, senhausuario, tipousuario, emailusuario, statususuario ) 
+values ( default, 'Roberto Santin', 'admin', '<40bd001563085fc35165329ea1ff5c5ecbdbbeef>', 0, 'betosantin@gmail.com', 1);
+
+-- -----------------------------------------------------
+-- Table Dispositivos
+-- -----------------------------------------------------
+CREATE TABLE Dispositivos (
+  iddispositivo SERIAL NOT NULL,
+  nomedispositivo VARCHAR(100) NOT NULL,
+  ip VARCHAR(30) NOT NULL,
+  porta INT NOT NULL,
+  servico VARCHAR(100) NOT NULL,
+  servelet VARCHAR(100) NOT NULL,
+  PRIMARY KEY (iddispositivo));
+
+
+-- -----------------------------------------------------
+-- Table Metodos
+-- -----------------------------------------------------
+CREATE TABLE Metodos (
+  idmetodo SERIAL NOT NULL,
+  nomemetodo VARCHAR(100) NOT NULL,
+  tiporetorno INT NOT NULL,
+  iddispositivo INT NOT NULL,
+  PRIMARY KEY (idmetodo, iddispositivo),
+  CONSTRAINT fk_Metodos_Dispositivos1
+    FOREIGN KEY (iddispositivo)
+    REFERENCES Dispositivos (iddispositivo));
+
+-- -----------------------------------------------------
+-- Table Parametros
+-- -----------------------------------------------------
+CREATE TABLE Parametros (
+  idparametro SERIAL NOT NULL,
+  nomeparametro VARCHAR(100) NOT NULL,
+  tipoparametro INT NOT NULL,
+  idmetodo INT NOT NULL,
+  PRIMARY KEY (idparametro, idmetodo),
+  CONSTRAINT fk_Parametros_Metodos1
+    FOREIGN KEY (idmetodo)
+    REFERENCES Metodos (idmetodo));
+

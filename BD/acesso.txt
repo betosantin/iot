@@ -1,0 +1,7 @@
+Acesso ao BD
+postgres
+postgres
+
+Acesso ao sistema
+admin
+123
