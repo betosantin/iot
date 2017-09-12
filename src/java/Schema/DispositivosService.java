@@ -46,7 +46,7 @@ public class DispositivosService implements DAO
         {
             connection.createStatement().executeUpdate("INSERT INTO " + DispositivosName.table_name + " "
                     + "(" + DispositivosName.sql + " ) "
-                    + "VALUES (" + u.getIdDispositivo() + ",'" + u.getNomeDispositivo() + "','" + u.getIp() + "'," + u.getPorta() 
+                    + "VALUES (" + getNextId() + ",'" + u.getNomeDispositivo() + "','" + u.getIp() + "'," + u.getPorta() 
                     + ",'" + u.getServico()+ "','" + u.getServelet()+ "' );");
             
             return true;            

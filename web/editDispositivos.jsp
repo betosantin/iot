@@ -95,7 +95,7 @@
                                         <div class="form-group">
                                             <label>Endereço de IP*</label>
                                             <input name="<%=DispositivosName.ip.toString()%>"
-                                                   class="form-control" placeholder="Endereço de IP:Porta" required
+                                                   class="form-control" placeholder="Endereço de IP" required
                                                    value="<%=us.getIp()%>">
                                         </div>
                                         <div class="form-group">
