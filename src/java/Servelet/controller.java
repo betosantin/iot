@@ -116,27 +116,27 @@ public class controller extends HttpServlet {
                 divGroup += label;
                         
                 List<Parametros> ps = new ConnectionBD().getParametrosService().getAllFromMetodos(m.getIdMetodo());
-                
-                if (!ps.isEmpty()) {
-                    
-                    for (Parametros p : ps) {
-                        
-                        String labelParemtro = " <label>Função: " + p.getNomeParametro() +"</label>";
-                        String input = " <input name=\"" + ParametrosName.idParametro + "\" \n"
-                                + "    class=\"form-control\""
-                                + "    value=\"olá mundo\">";
 
-                         divGroup += labelParemtro + input + "<br>";
-                    }
-                    
-                    divGroup += "<button>Executar</button></a></div>";
+                divGroup += "<form name=\"" + m.getNomeMetodo() + "\" action=\"http://" + d.getIp() + ":" + d.getPorta() + "/" + d.getServico() + "/"
+                        + d.getServelet() + "?" + m.getNomeMetodo() + "&\" method=\"post\">";
+
+                for (Parametros p : ps) {
+                    divGroup += "<div class=\"form-group\">";
+
+                    String labelParemtro = " <label>Parâmetro: " + p.getNomeParametro() + "</label>";
+                    String input = " <input name=\"" + p.getNomeParametro() + "\" \n"
+                            + "    class=\"form-control\""
+                            + "    placeholder=\"" + p.getNomeParametro() + "\""
+                            + "    type=\"" + p.typeInput() + "\">";
+
+                    divGroup += labelParemtro + input + "</div><br>";
                 }
-                
+
+                divGroup += "<button type=\"submit\" class=\"btn btn-primary\">Executar</button></a></div></form>";
+
                 divGroup += "<br><br>";
             }
             
-            
-
             try {
 
                 resposta.setCharacterEncoding("utf-8");
@@ -144,6 +144,7 @@ public class controller extends HttpServlet {
                 resposta.getWriter().write(divGroup);
 
             } catch (IOException ex) {
+                ex.printStackTrace();
             }
         }
     }
