@@ -1,3 +1,6 @@
+<%@page import="java.io.InputStreamReader"%>
+<%@page import="java.io.BufferedReader"%>
+<%@page import="java.net.URL"%>
 <%@page import="java.util.List"%>
 <%@page import="Entity.Dispositivo"%>
 <%@page import="Utilities.ConnectionBD"%>
@@ -69,7 +72,26 @@
                 <!--end  Welcome -->
             </div>
 
-
+            <!--<div id="vaca">--> 
+                
+<!--                try
+                    {
+                    URL url = new URL("http://190.15.44.15:8081/Agente/acao?obtertemperatura");
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+                        String temp = null;
+                        while ((temp = reader.readLine()) != null) {
+                            out.write(temp);
+                        }
+                    }catch( Exception ex )
+                    {
+                        
+                    }-->
+                
+                
+                 <!--</div>-->
+            
+            
+            
             <div class="row"  >
                 <div class="col-lg-10"  >
 

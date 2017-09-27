@@ -29,8 +29,20 @@
                     <!--end user image section-->
                 </li>
                 <!--<li class="selected">-->
-                <li>
+<!--                <li>
                     <a href="home.jsp"><i class="fa fa-dashboard fa-fw"></i>Controle</a>
+                </li>-->
+                
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gerenciamento<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="home.jsp">Controle </a>
+                        </li>
+                        <li>
+                            <a href="conHistorico.jsp">Histórico de Eventos </a>
+                        </li>
+                    </ul>
                 </li>
                 <%
                     if ( user.getTipoUsuario() == Usuario.TIPO_ADMINISTRADOR )
