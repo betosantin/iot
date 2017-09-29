@@ -113,55 +113,6 @@
                             &nbsp;
                             <button onclick='exibirFuncoes()' >Ok</button></a>
                         </div>
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <!-- Advanced Tables -->
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            Tabela de eventos
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-bordered table-hover" id="dataTable">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Evento</th>
-                                                            <th>Direção</th>
-                                                            <th>Valor de Retorno</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr class="odd gradeX">
-                                                            <td>acenderled</td>
-                                                            <td>Enviado</td>
-                                                            <td>255,255,255</td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td>acenderled</td>
-                                                            <td>Retorno</td>
-                                                            <td>Ok</td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td>obtertemperatura</td>
-                                                            <td>Enviado</td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td>obtertemperatura</td>
-                                                            <td>Retorno</td>
-                                                            <td>28ºC</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
                             
                         <div id='result' >
 
