@@ -93,13 +93,13 @@
                                                    value="<%=us.getNomeDispositivo()%>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Endereço de IP*</label>
+                                            <label>Endereço de IP* Ex: https://192.168.2.2</label>
                                             <input name="<%=DispositivosName.ip.toString()%>"
                                                    class="form-control" placeholder="Endereço de IP" required
                                                    value="<%=us.getIp()%>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Porta*</label>
+                                            <label>Porta* Ex: 8443</label>
                                             <input name="<%=DispositivosName.porta.toString()%>"
                                                    class="form-control" placeholder="Porta da conexão" required 
                                                    type="number"

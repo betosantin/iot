@@ -80,6 +80,6 @@ public class Dispositivo {
 
     @Override
     public String toString() {
-        return "http://" + ip + ":" + porta + "/" + servico + "/" + servelet + "?";
+        return ip + ":" + porta + "/" + servico + "/" + servelet + "?";
     }
 }

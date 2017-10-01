@@ -117,7 +117,7 @@ public class controller extends HttpServlet {
                         
                 List<Parametros> ps = new ConnectionBD().getParametrosService().getAllFromMetodos(m.getIdMetodo());
 
-                divGroup += "<form name=\"" + m.getNomeMetodo() + "\" action=\"http://" + d.getIp() + ":" + d.getPorta() + "/" + d.getServico() + "/"
+                divGroup += "<form name=\"" + m.getNomeMetodo() + "\" action=\"" + d.getIp() + ":" + d.getPorta() + "/" + d.getServico() + "/"
                         + d.getServelet() + "?" + m.getNomeMetodo() + "&\" method=\"post\">";
 
                 for (Parametros p : ps) {
