@@ -24,6 +24,10 @@
         <servlet-name>graph</servlet-name>
         <servlet-class>Servelet.graph</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>resultado</servlet-name>
+        <servlet-class>Servelet.resultado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>acao</servlet-name>
         <url-pattern>/acao</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>graph</servlet-name>
         <url-pattern>/graph</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>resultado</servlet-name>
+        <url-pattern>/resultado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

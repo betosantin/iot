@@ -6,6 +6,7 @@ import Entity.Usuario;
 import Schema.DispositivosService;
 import Schema.MetodosService;
 import Schema.ParametrosService;
+import Schema.ResultadoService;
 import Schema.UsuariosService;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -137,6 +138,23 @@ public class ConnectionBD
         }
         
         return parametrosService;
+    }
+    
+    public ResultadoService getResultadoService()
+    {
+        ResultadoService resultadoService = null;
+        
+        try
+        {
+            resultadoService = ResultadoService.getInstance();
+        }
+        
+        catch ( Exception e )
+        {
+            e.printStackTrace();
+        }
+        
+        return resultadoService;
     }
     
     public Usuario getActityUser()

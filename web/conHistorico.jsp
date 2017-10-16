@@ -4,11 +4,12 @@
     Author     : Roberto Santin
 --%>
 
+<%@page import="Entity.Resultado"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.io.InputStreamReader"%>
 <%@page import="java.io.BufferedReader"%>
 <%@page import="java.net.URL"%>
 <%@page import="java.util.List"%>
-<%@page import="Entity.Dispositivo"%>
 <%@page import="Utilities.ConnectionBD"%>
 <%@page import="Entity.Usuario"%>
 
@@ -77,32 +78,34 @@
                                             <table class="table table-striped table-bordered table-hover" id="dataTable">
                                                 <thead>
                                                     <tr>
+                                                        <th>Dispositivo</th>
+                                                        <th>Usuário</th>
                                                         <th>Evento</th>
+                                                        <th>Quando</th>
                                                         <th>Direção</th>
-                                                        <th>Valor de Retorno</th>
+                                                        <th>Valor</th>
                                                     </tr>
                                                 </thead>
+                                                
+                                                <%
+                                                    ArrayList<Resultado> resultados = new ConnectionBD().getResultadoService().getAll();
+
+                                                    for (int i = 0; i < resultados.size(); i++)
+                                                    {
+                                                        Resultado c = resultados.get(i);
+                                                %>
+                                                
                                                 <tbody>
                                                     <tr class="odd gradeX">
-                                                        <td>acenderled</td>
-                                                        <td>Enviado</td>
-                                                        <td>255,255,255</td>
+                                                        <td><%=c.getDispositivo()%></td>
+                                                        <td><%=c.getUsuário()%></td>
+                                                        <td><%=c.getNomeEvento()%></td>
+                                                        <td><%=c.getDataToString()%></td>
+                                                        <td><%=c.getDirectionToString()%></td>
+                                                        <td><%=c.getValue()%></td>
                                                     </tr>
-                                                    <tr class="odd gradeX">
-                                                        <td>acenderled</td>
-                                                        <td>Retorno</td>
-                                                        <td>Ok</td>
-                                                    </tr>
-                                                    <tr class="odd gradeX">
-                                                        <td>obtertemperatura</td>
-                                                        <td>Enviado</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="odd gradeX">
-                                                        <td>obtertemperatura</td>
-                                                        <td>Retorno</td>
-                                                        <td>28ºC</td>
-                                                    </tr>
+                                                    <%}
+                                                    %>
                                                 </tbody>
                                             </table>
                                         </div>

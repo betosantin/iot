@@ -103,6 +103,7 @@ public class filter extends HttpServlet implements Filter {
         urls.add("/IoT/recover");
         urls.add("/IoT/recovery.jsp");
         urls.add("/IoT/logout");
+        urls.add("/IoT/resultado");
         urls.add("/IoT/index.jsp");
         urls.add("/IoT/assets/img/logo.png");
         urls.add("/IoT/images/background.jpg");
