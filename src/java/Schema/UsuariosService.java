@@ -265,7 +265,7 @@ public class UsuariosService implements DAO
     {
         try
         {
-            return "<" + String.format( "%040x", new BigInteger( MessageDigest.getInstance( "SHA1" ).digest( password.getBytes() ) ).abs() ) + ">";
+            return String.format( "%040x", new BigInteger( MessageDigest.getInstance( "SHA1" ).digest( password.getBytes() ) ).abs() );
         }
         
         catch (Exception ex)
