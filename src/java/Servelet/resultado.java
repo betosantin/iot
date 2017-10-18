@@ -5,14 +5,12 @@
  */
 package Servelet;
 
-import Entity.Metodos;
 import Entity.Resultado;
-import Schema.ResultadoService;
+import Entity.Usuario;
+import Schema.UsuariosService;
 import Utilities.ConnectionBD;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -59,22 +57,36 @@ public class resultado extends HttpServlet {
         requisicao = request;
         resposta = response;
       
-        if (requisicao.getParameter("resultado") != null) {
+        String parameter = requisicao.getParameter("pass");
 
-            Resultado res = new Gson().fromJson(requisicao.getParameter("resultado"), Resultado.class);
-            
-            if ( res != null )
-            {
-                ConnectionBD.getInstance().getResultadoService().insert(res);
-                resposta.sendError(HttpServletResponse.SC_OK);
+        if (parameter != null && !parameter.isEmpty()) {
+
+            UsuariosService us = ConnectionBD.getInstance().getUsuariosService();
+
+            boolean continuar = false;
+
+            for (Usuario u : us.getAll()) {
+                if (u.getSenhaUsuario().equalsIgnoreCase(parameter)) {
+                    continuar = true;
+                    break;
+                }
             }
-            else
-            {
-                resposta.sendError(HttpServletResponse.SC_BAD_REQUEST);
+
+            if (continuar) {
+
+                Resultado res = new Gson().fromJson(requisicao.getParameter("resultado"), Resultado.class);
+
+                if (res != null) {
+                    ConnectionBD.getInstance().getResultadoService().insert(res);
+                    resposta.sendError(HttpServletResponse.SC_OK);
+                } else {
+                    resposta.sendError(HttpServletResponse.SC_BAD_REQUEST);
+                }
+            } else {
+                resposta.sendError(HttpServletResponse.SC_FORBIDDEN);
             }
-        }
-        else
-        {
+
+        } else {
             resposta.setCharacterEncoding("utf-8");
             resposta.setContentType("text/html");
             resposta.sendError(HttpServletResponse.SC_BAD_REQUEST);
