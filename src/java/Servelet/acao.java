@@ -370,6 +370,19 @@ public class acao extends HttpServlet {
         MetodosService ms = new ConnectionBD().getMetodosService();
         
         Dispositivo d = ds.getSource(id);
+        List<Metodos> metodos = ms.getAllFromDispositivo(id);
+        
+        for ( Metodos m : metodos )
+        {
+            List<Parametros> pars = ps.getAllFromMetodos(m.getIdMetodo());
+            
+            for( Parametros p : pars )
+            {
+                ps.delete(p.getIdParametro());
+            }
+            
+            ms.delete(m.getIdMetodo());
+        }
         
         if ( d != null )
         {
