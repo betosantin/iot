@@ -76,7 +76,7 @@ public class resultado extends HttpServlet {
 
             if (continuar) {
 
-                Resultado res = new Gson().fromJson(requisicao.getParameter("resultado"), Resultado.class);
+                Resultado res = new Gson().fromJson(new String(requisicao.getParameter("resultado").getBytes("ISO8859_1"), "UTF8"), Resultado.class);
 
                 if (res != null) {
                     res.setDispositivo(requisicao.getRemoteAddr());
