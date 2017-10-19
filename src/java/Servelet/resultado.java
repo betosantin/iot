@@ -10,7 +10,9 @@ import Entity.Usuario;
 import Schema.UsuariosService;
 import Utilities.ConnectionBD;
 import com.google.gson.Gson;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -77,6 +79,7 @@ public class resultado extends HttpServlet {
                 Resultado res = new Gson().fromJson(requisicao.getParameter("resultado"), Resultado.class);
 
                 if (res != null) {
+                    res.setDispositivo(requisicao.getRemoteAddr());
                     ConnectionBD.getInstance().getResultadoService().insert(res);
                     resposta.sendError(HttpServletResponse.SC_OK);
                 } else {

@@ -414,6 +414,7 @@ public class acao extends HttpServlet {
                 List<Metodos> personList = new Gson().fromJson(rd.readLine(), token.getType());
 
                 rd.close();
+                conn.disconnect();
 
                 List<Metodos> dn = ms.getAllFromDispositivo(id);
                 

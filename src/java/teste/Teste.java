@@ -29,9 +29,9 @@ public class Teste {
         Resultado a = new Resultado();
         
         a.setDispositivo("dispostivo");
-        a.setUsuário("usuario");
+        a.setUsuario("usuario");
         a.setNomeEvento("evento");
-        a.setData(d);
+        a.setData(d.getTime());
         a.setDirecao(Resultado.DIRECTION_SEND);
         a.setValue("valor");
         

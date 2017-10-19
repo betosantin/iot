@@ -46,12 +46,10 @@ public class ResultadoService implements DAO
         
         try
         {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
             connection.createStatement().executeUpdate("INSERT INTO " + HistoricosName.table_name + " "
                     + "(" + HistoricosName.sql + " ) "
-                    + "VALUES (" + getNextId() + ",'" + u.getDispositivo() + "','" + u.getUsuário() + "','" + u.getNomeEvento()
-                    + "','" + sdf.format(u.getData()) + "'," + u.getDirecao() + ",'" + u.getDirecao() + "' );");
+                    + "VALUES (" + getNextId() + ",'" + u.getDispositivo() + "','" + u.getUsuario() + "','" + u.getNomeEvento()
+                    + "','" + u.getDataToString() + "'," + u.getDirecao() + ",'" + u.getValue() + "' );");
             
             return true;            
         }
@@ -78,7 +76,7 @@ public class ResultadoService implements DAO
         {
             connection.createStatement().executeUpdate( "UPDATE " + HistoricosName.table_name + " "
                     + "SET " + HistoricosName.dispositivo + " = '" + u.getDispositivo() + "' , "
-                    + HistoricosName.usuario + " = '" + u.getUsuário()+ "' , "
+                    + HistoricosName.usuario + " = '" + u.getUsuario()+ "' , "
                     + HistoricosName.evento + " = '" + u.getNomeEvento() + "' , "
                     + HistoricosName.data + " = '" + u.getData() + "' , "
                     + HistoricosName.direcao + " = " + u.getDirecao() + " "
@@ -131,9 +129,9 @@ public class ResultadoService implements DAO
                 
                 u.setIdhistorico(result.getInt(HistoricosName.idhistorico));
                 u.setDispositivo(result.getString(HistoricosName.dispositivo));
-                u.setUsuário(result.getString(HistoricosName.usuario));
+                u.setUsuario(result.getString(HistoricosName.usuario));
                 u.setNomeEvento(result.getString(HistoricosName.evento));
-                u.setData(new Date(result.getTimestamp(HistoricosName.data).getTime()));
+                u.setData(result.getTimestamp(HistoricosName.data).getTime());
                 u.setDirecao(result.getInt(HistoricosName.direcao));
                 u.setValue(result.getString(HistoricosName.valor));
 
@@ -179,9 +177,9 @@ public class ResultadoService implements DAO
                 
                 u.setIdhistorico( result.getInt( HistoricosName.idhistorico ) );
                 u.setDispositivo( result.getString( HistoricosName.dispositivo ) );
-                u.setUsuário( result.getString( HistoricosName.usuario ) );
+                u.setUsuario( result.getString( HistoricosName.usuario ) );
                 u.setNomeEvento( result.getString( HistoricosName.evento ) );
-                u.setData( result.getDate( HistoricosName.data ) );
+                u.setData( result.getTimestamp(HistoricosName.data).getTime() );
                 u.setDirecao( result.getInt( HistoricosName.direcao ) );
                 u.setValue( result.getString( HistoricosName.valor ) );
             }

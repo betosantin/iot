@@ -98,7 +98,7 @@
                                                 <tbody>
                                                     <tr class="odd gradeX">
                                                         <td><%=c.getDispositivo()%></td>
-                                                        <td><%=c.getUsuário()%></td>
+                                                        <td><%=c.getUsuario()%></td>
                                                         <td><%=c.getNomeEvento()%></td>
                                                         <td><%=c.getDataToString()%></td>
                                                         <td><%=c.getDirectionToString()%></td>
