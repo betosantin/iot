@@ -26,9 +26,9 @@
         <link href="assets/css/style.css" rel="stylesheet" />
         <link href="assets/css/main-style.css" rel="stylesheet" />
         <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-        <!-- Page-Level CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/plugins/dataTables/dataTables.bootstrap.css">
 
+        <script type="text/javascript" language="javascript" src="assets/plugins/dataTables/jquery.dataTables.js"></script>
         <script src="assets/plugins/jquery-1.10.2.js"></script>
     </head>
     <body>
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="panel-body">
                                         <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover" id="dataTable">
+                                            <table id="datatable" class="display" cellspacing="0" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>Dispositivo</th>
@@ -86,7 +86,17 @@
                                                         <th>Valor</th>
                                                     </tr>
                                                 </thead>
-                                                
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Dispositivo</th>
+                                                        <th>Usuário</th>
+                                                        <th>Evento</th>
+                                                        <th>Quando</th>
+                                                        <th>Direção date</th>
+                                                        <th>Valor</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
                                                 <%
                                                     ArrayList<Resultado> resultados = new ConnectionBD().getResultadoService().getAll();
 
@@ -94,9 +104,9 @@
                                                     {
                                                         Resultado c = resultados.get(i);
                                                 %>
-                                                
-                                                <tbody>
-                                                    <tr class="odd gradeX">
+
+
+                                                    <tr>
                                                         <td><%=c.getDispositivo()%></td>
                                                         <td><%=c.getUsuario()%></td>
                                                         <td><%=c.getNomeEvento()%></td>
@@ -128,16 +138,12 @@
         <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
         <script src="assets/plugins/pace/pace.js"></script>
         <script src="assets/scripts/siminta.js"></script>
-        <!-- Page-Level Plugin Scripts-->
-
-        <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
-        <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTable').dataTable();
-            });
-        </script>
-
+    <script>
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        } );
+    </script>
+    
     </body>
 
 </html>
