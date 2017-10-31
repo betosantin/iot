@@ -15,7 +15,6 @@
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/main-style.css" rel="stylesheet" />
-    <script src="assets/plugins/jquery-1.10.2.js"></script>
 </head>
 
 <body>
